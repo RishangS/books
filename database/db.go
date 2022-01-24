@@ -1,7 +1,6 @@
 package database
 
 import (
-	"books/utils"
 	"context"
 	"fmt"
 	"log"
@@ -12,9 +11,9 @@ import (
 
 func Db() *mongo.Client {
 
-	config, _ := utils.LoadConfig(".")
+	// _, _ := utils.LoadConfig(".")
 
-	clientOptions := options.Client().ApplyURI(config.DBURL)
+	clientOptions := options.Client().ApplyURI("mongodb+srv://rishang:rishang@cluster0.8vwd1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
 	// Connect to MongoDB
 	client, err := mongo.Connect(context.TODO(), clientOptions)

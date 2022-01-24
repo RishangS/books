@@ -3,9 +3,6 @@
 package main
 
 import (
-	"books/utils"
-	"fmt"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,16 +17,16 @@ func main() {
 	// from the disk again. This makes serving HTML pages very fast.
 	router.LoadHTMLGlob("templates/*")
 
-	config, err := utils.LoadConfig(".")
+	// _, err := utils.LoadConfig(".")
 
-	if err != nil {
-		fmt.Println(err)
-	}
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
 
 	// Initialize the routes
 	initializeRoutes()
 
 	// Start serving the application
-	router.Run(config.SRVPort)
+	router.Run(":8000")
 
 }
